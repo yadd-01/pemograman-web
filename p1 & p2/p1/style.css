@@ -1,0 +1,129 @@
+/* style.css */
+
+/* ===== Global Reset & Font ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', 'Roboto Mono', monospace;
+  color: #cfd8dc; /* abu-abu terang */
+  background: linear-gradient(270deg, #0a0a0a, #1c1c2b, #2c2c2c, #0a0a0a);
+  background-size: 600% 600%;
+  animation: bgMove 20s ease infinite;
+  padding: 20px;
+}
+
+/* Animasi background gradasi bergerak */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Heading ===== */
+h1, h2, h3 {
+  margin: 15px 0;
+  padding: 10px;
+  text-align: center;
+  color: #90caf9; /* biru muda */
+  border: 2px solid #90caf9;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #1565c0; /* biru navy glow */
+  background: rgba(20, 20, 30, 0.8);
+}
+
+/* ===== Paragraf ===== */
+p {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #546e7a;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #263238;
+  background: rgba(15, 15, 25, 0.7);
+  line-height: 1.6;
+}
+
+/* ===== List ===== */
+ul, ol {
+  margin: 10px 0 20px 25px;
+  padding: 10px;
+  border: 1px solid #5c6bc0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #283593;
+  background: rgba(15, 15, 30, 0.7);
+}
+
+li {
+  margin: 5px 0;
+}
+
+/* ===== Gambar ===== */
+img {
+  display: block;
+  margin: 15px auto;
+  border: 2px solid #90caf9;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #1565c0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #42a5f5;
+}
+
+/* ===== Link ===== */
+a {
+  color: #82b1ff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid #3949ab;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #1a237e;
+  transition: all 0.3s ease;
+}
+a:hover {
+  background: #1e88e5;
+  color: #fff;
+  text-shadow: 0 0 5px #0d47a1;
+  box-shadow: 0 0 20px #42a5f5;
+}
+
+/* ===== Nav ===== */
+nav {
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid #3949ab;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #1a237e;
+  background: rgba(10, 10, 25, 0.9);
+}
+
+/* ===== Section ===== */
+section {
+  margin: 20px 0;
+  padding: 15px;
+  border: 2px solid #5c6bc0;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #283593;
+  background: rgba(15, 15, 30, 0.6);
+}
+
+/* ===== Header & Footer ===== */
+header, footer {
+  text-align: center;
+  padding: 20px;
+  background: #0d1117; /* hitam navy style */
+  border: 2px solid #3949ab;
+  box-shadow: 0 0 25px #1a237e;
+}
+
+header h1, footer p {
+  color: #82b1ff;
+  text-shadow: 0 0 10px #42a5f5;
+  font-family: 'Courier New', monospace;
+}

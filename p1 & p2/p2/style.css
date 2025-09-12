@@ -1,0 +1,352 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  background: linear-gradient(180deg, #0a0f0f, #021b17, #013220);
+  color: #e0f7fa;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  margin: 0 0 15px;
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.container {
+  width: 85%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+/* ===== HEADER STYLE ===== */
+header {
+  position: relative;
+  z-index: 1000;
+  background: rgba(2, 20, 18, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 15px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.25);
+}
+
+/* Border animasi neon */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 2px;
+  background: linear-gradient(270deg, #1a792c, #5c1179, #065e4d, #120e6b);
+  background-size: 400% 400%;
+  animation: borderRotate 6s linear infinite;
+  
+  /* masking supaya hanya border yang kelihatan */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes borderRotate {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== LOGO TEKS "ARIYADI" ===== */
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: flex;
+  gap: 2px;
+}
+
+/* Buat efek per-huruf */
+.logo span {
+  display: inline-block;
+  animation: neonCycle 3s linear infinite;
+}
+
+/* Warna neon berganti hijau ↔ ungu */
+@keyframes neonCycle {
+  0%, 100% { color: #00ffcc; text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
+  50%      { color: #9b59b6; text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6; }
+}
+
+/* Delay animasi tiap huruf agar bergantian */
+.logo span:nth-child(1) { animation-delay: 0s; }
+.logo span:nth-child(2) { animation-delay: 0.2s; }
+.logo span:nth-child(3) { animation-delay: 0.4s; }
+.logo span:nth-child(4) { animation-delay: 0.6s; }
+.logo span:nth-child(5) { animation-delay: 0.8s; }
+.logo span:nth-child(6) { animation-delay: 1s; }
+.logo span:nth-child(7) { animation-delay: 1.2s; }
+
+/* Navbar tetap elegan */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #e0f7fa;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #00ffcc;
+}
+
+
+/* Hero Section Update */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  gap: 40px;
+  padding: 50px 10%;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 400px;
+  border-radius: 12px;
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Section Box Style */
+section {
+  margin: 60px auto;
+  padding: 40px;
+  border: 2px solid #00ffcc;
+  border-radius: 12px;
+  background: rgba(0, 24, 21, 0.7);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.35);
+}
+
+section h2 {
+  border-bottom: 2px solid #00ffcc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #00ffcc;
+}
+
+
+
+/* Navbar */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #e0f7fa;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #00ffcc;
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #00ffcc;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+}
+
+.hero-content span {
+  color: #00ffcc;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: 2px solid #00ffcc;
+  border-radius: 5px;
+  color: #00ffcc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #00ffcc;
+  color: #011210;
+}
+
+/* Skills */
+.skills-list {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.skills-list li {
+  background: #013220;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.skills-list li:hover {
+  transform: scale(1.1);  
+  background: #025f43;
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #01211d;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  background: #024d3a;
+}
+
+/* Contact */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+form button {
+  cursor: pointer;
+}
+
+.email {
+  margin-top: 15px;
+}
+
+.email a {
+  color: #00ffcc;
+  text-decoration: none;
+}
+
+.email a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: #011210;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
