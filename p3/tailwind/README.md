@@ -68,16 +68,11 @@ Fokus utama dari proyek ini adalah **membuat layout responsif** dengan memanfaat
 
 ---
 
-## 🖼 Preview
-Contoh tampilan proyek ini:  
-
-![Preview Screenshot](preview.png)  
-
----
 
 ## 🎯 Kesimpulan
 Dengan menggabungkan **Flexbox**, **Grid System**, dan **utility classes** dari Tailwind, proyek ini berhasil menampilkan halaman profil Instagram yang **sederhana, modern, dan responsif**, tanpa perlu menulis CSS manual tambahan.  
 
 ---
+
 
 
