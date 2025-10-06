@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perkiraan Cuaca — Kota Indonesia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cloud"></div>
+    <div class="cloud" style="top:100px; animation-duration:80s; opacity:0.4;"></div>
+    <div class="cloud" style="top:150px; animation-duration:100s; opacity:0.6;"></div>
+
+    <div class="rain"></div>
+    <div class="clouds"></div>
+    <div class="rain"></div>
+
+
+  <header class="site-header">
+    <h1>Perkiraan Cuaca — Kota Indonesia</h1>
+    <p class="subtitle">Simulasi prakiraan lokal (current + 3 hari)</p>
+  </header>
+
+  <main class="container">
+
+    <section class="controls" aria-label="Kontrol pemilihan kota">
+      <label for="citySelect">Pilih Kota:</label>
+      <div class="select-row">
+        <select id="citySelect" name="citySelect" aria-label="Daftar kota Indonesia">
+
+          <option value="jakarta">Jakarta</option>
+          <option value="surabaya">Surabaya</option>
+          <option value="bandung">Bandung</option>
+          <option value="medan">Medan</option>
+          <option value="semarang">Semarang</option>
+          <option value="makassar">Makassar</option>
+          <option value="denpasar">Denpasar</option>
+          <option value="yogyakarta">Yogyakarta</option>
+          <option value="palembang">Palembang</option>
+          <option value="balikpapan">Balikpapan</option>
+        </select>
+
+        
+        <button id="showBtn" type="button" aria-label="Tampilkan perkiraan">Tampilkan</button>
+      </div>
+
+
+      <div id="message" role="status" aria-live="polite" class="message" hidden></div>
+    </section>
+
+
+    <section id="weatherCard" class="weather-card" aria-live="polite">
+  
+    </section>
+
+    <footer class="footer">
+      <small>2411102441240@umkt.ac.id.</small>
+      <p class="run-instructions"> Ariyadi - 2411102441240.</p>
+    </footer>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

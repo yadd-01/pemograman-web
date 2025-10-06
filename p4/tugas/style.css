@@ -1,0 +1,200 @@
+/* ============================
+   THEME GELAP + ANIMASI HUJAN
+   ============================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #e5e7eb;
+  background: linear-gradient(#0f172a, #1e293b); /* biru tua gelap */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Variabel warna */
+:root {
+  --accent: #38bdf8; /* biru neon */
+  --card-bg: rgba(30, 41, 59, 0.85); /* dark transparan */
+  --muted: #94a3b8;
+  --shadow: 0 6px 18px rgba(0,0,0,0.6);
+  --radius: 12px;
+}
+
+/* Header */
+.site-header {
+  text-align: center;
+  padding: 18px 14px;
+  background: rgba(15, 23, 42, 0.7);
+  border-bottom: 1px solid rgba(148,163,184,0.2);
+  position: relative;
+  z-index: 2;
+}
+.site-header h1 { font-size: 1.4rem; margin-bottom: 6px; color: var(--accent); }
+.subtitle { color: var(--muted); font-size: 0.9rem; }
+
+/* Kontainer */
+.container {
+  max-width: 920px;
+  margin: 18px auto;
+  padding: 12px;
+  position: relative;
+  z-index: 2; /* biar di atas hujan */
+}
+
+/* Form kontrol */
+.controls {
+  background: var(--card-bg);
+  padding: 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+}
+.controls label { display:block; font-weight:600; margin-bottom:6px; }
+.select-row { display:flex; gap:8px; align-items:center; }
+select#citySelect {
+  flex:1;
+  padding:10px 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(51,65,85,0.9);
+  color: #f1f5f9;
+}
+#showBtn {
+  padding:10px 14px;
+  border-radius:10px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow: 0 6px 12px rgba(56,189,248,0.25);
+  transition: transform .2s;
+}
+#showBtn:hover { transform: scale(1.05); }
+#showBtn:active { transform: translateY(2px); }
+
+.message { margin-top:10px; color: #f87171; font-weight:600; }
+
+/* Weather card */
+.weather-card {
+  background: var(--card-bg);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  transition: transform .35s ease, opacity .35s ease;
+  min-height: 160px;
+  backdrop-filter: blur(4px);
+}
+
+/* Layout info */
+.top {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content: space-between;
+  margin-bottom:12px;
+}
+.city-info { display:flex; gap:12px; align-items:center; }
+.city-name { font-size: 1.1rem; font-weight:700; color: #f1f5f9; }
+.date-text { color: var(--muted); font-size:0.9rem; }
+
+.current {
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.current .icon {
+  width:72px; height:72px; flex:0 0 72px;
+}
+.current .temp { font-size: 2rem; font-weight:800; color: #fefefe; }
+.current .desc { color: var(--muted); }
+
+.stats {
+  display:flex;
+  gap:16px;
+  margin-top:10px;
+  color: var(--muted);
+  font-weight:600;
+}
+.stat { display:flex; gap:6px; align-items:center; }
+
+.forecast { margin-top:16px; }
+.forecast-grid {
+  display:flex;
+  gap:10px;
+  flex-wrap:nowrap;
+  overflow:auto;
+}
+.fday {
+  background: rgba(51,65,85,0.7);
+  border-radius:10px;
+  padding:10px;
+  min-width:110px;
+  text-align:center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  color: #f1f5f9;
+}
+.fday .date { font-weight:700; margin-bottom:6px; }
+.fday .temps { font-size:0.95rem; color:var(--muted); margin-top:6px; }
+
+.footer { margin-top:14px; text-align:center; color:var(--muted); font-size:0.85rem; }
+
+/* Animasi fade-in */
+.fade-in { opacity:0; transform: translateY(8px); animation: fadeIn .45s forwards; }
+@keyframes fadeIn {
+  to { opacity:1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width:600px) {
+  .current { flex-direction: row; }
+  .current .icon { width:56px; height:56px; flex:0 0 56px; }
+  .current .temp { font-size:1.6rem; }
+  .forecast-grid { gap:8px; }
+  .fday { min-width:95px; padding:8px; }
+}
+
+/* ======================
+   ANIMASI HUJAN & AWAN
+   ====================== */
+
+/* ☁️ Awan bergerak */
+.clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background: url("https://i.ibb.co/SrkNfxL/clouds.png") repeat-x;
+  background-size: contain;
+  animation: moveClouds 60s linear infinite;
+  z-index: 1;
+  opacity: 0.4;
+}
+@keyframes moveClouds {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* 🌧️ Hujan */
+.rain {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 2px;
+  height: 15px;
+  background: rgba(174,194,224,0.6);
+  animation: fall linear infinite;
+  border-radius: 50%;
+}
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
