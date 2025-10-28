@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: rgb(119, 135, 138);
+    color: rgb(0, 0, 0);
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    width: 90%;
+}
+
+#form-section {
+    width: 45%;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+#table-section {
+    width: 50%;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    #form-section, #table-section {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, button {
+    padding: 8px;
+    border: 1px solid black;
+}
+
+button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: gray;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    margin-top: 20px;
+}
